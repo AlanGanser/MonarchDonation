@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: 'Arimo', sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Zilla Slab', serif;
+    color: #262421;
+}
+h1 {
+    font-size: 88.38px;
+    line-height: 90px;
+}
+h2 {
+    font-size: 66.30px;
+    line-height: 70px;
+}
+h3 {
+    font-size: 49.74px;
+    line-height: 50px;
+}
+h4 {
+    font-size: 37.31px;
+    line-height: 40px;
+}
+h5 {
+    font-size: 27.99px;
+    line-height: 30px;
+}
+nav {
+    display: inline-flex;
+    column-gap: 56px;
+}
+header a, .active {
+    padding: 8px 24px;
+    text-decoration: none;
+    color: #262421;
+}
+.active {
+    font-weight: bold;
+    margin: 0;
+}
+img {
+    height: 46px;
+    margin: 0 8px;
+}
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px 64px;
+    position: sticky;
+    top: 0;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #262421;
+}

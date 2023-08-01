@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, RefObject, useCallback } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
+import { AnyAaaaRecord } from "dns";
 
 interface Page {
     name: string;
@@ -87,7 +88,7 @@ const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; nav
                     </Link>
                     <Link
                         href="#"
-                        className="rounded-md bg-primary-300 px-3 py-2 text-sm font-semibold text-grey-900 shadow-sm hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300 transition"
+                        className="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300 transition"
                     >
                         Sign up
                     </Link>
@@ -180,10 +181,10 @@ const NavbarWrapper = () => {
     const navStyles = {
         hidden: "hidden",
         stick: "fixed inset-x-0 top-0 bg-white",
-        stickhidden: `fixed inset-x-0 -top-[60px] bg-white`, // randomly causing errors when plugins are updated //${navRef.current?.offsetHeight || 60}
+        stickhidden: navRef.current ? `fixed inset-x-0 -top-[${navRef.current.offsetHeight}px] bg-white` : '', // randomly causing errors when plugins are updated //
     };
 
-    const [navDisplay, setNavDisplay] = useState<string>(navStyles.stickhidden);
+    const [navDisplay, setNavDisplay] = useState<string>(navStyles.hidden);
 
     const [previousScrollPosition, setPreviousScrollPosition] = useState<number>(window.scrollY);
 
@@ -196,8 +197,10 @@ const NavbarWrapper = () => {
 
     const updateNavDisplay = useCallback(() => {
         let newNavDisplay = "";
+        console.log(navDisplay);
         let secondSection = document.getElementById(currentPage.secondSectionID) as HTMLElement;
 
+        console.log(navDisplay)
         if (secondSection == null) {
             newNavDisplay = navStyles.hidden;
         } else if (secondSection.getBoundingClientRect().top <= 0) {

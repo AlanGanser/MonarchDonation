@@ -35,7 +35,7 @@ const Mail = () => {
                                     name="full-name"
                                     id="full-name"
                                     autoComplete="name"
-                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-primary-300 focus:ring-primary-300"
+                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-orange-400 focus:ring-orange-400"
                                     placeholder="Full name"
                                 />
                             </div>
@@ -48,7 +48,7 @@ const Mail = () => {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-primary-300 focus:ring-primary-300"
+                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-orange-400 focus:ring-orange-400"
                                     placeholder="Email"
                                 />
                             </div>
@@ -60,7 +60,7 @@ const Mail = () => {
                                     type="text"
                                     name="subject"
                                     id="subject"
-                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-primary-300 focus:ring-primary-300"
+                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-orange-400 focus:ring-orange-400"
                                     placeholder="Subject"
                                     autoComplete="off"
                                 />
@@ -73,7 +73,7 @@ const Mail = () => {
                                     id="message"
                                     name="message"
                                     rows={4}
-                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-primary-300 focus:ring-primary-300"
+                                    className="block w-full rounded-md border-gray-300 px-4 py-3 placeholder-gray-500 shadow-sm focus:border-orange-400 focus:ring-orange-400"
                                     placeholder="Message"
                                     defaultValue={""}
                                 />
@@ -81,7 +81,7 @@ const Mail = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md border border-transparent bg-primary-300 px-3.5 py-2.5 text-base font-semibold text-gray-800 shadow-sm lg:w-auto hover:bg-secondary hover:text-white transition"
+                                    className="flex w-full justify-center rounded-md border border-transparent bg-orange-500 px-3.5 py-2.5 text-base font-semibold text-white shadow-sm lg:w-auto hover:bg-orange-400 transition"
                                 >
                                     Submit
                                 </button>
@@ -180,9 +180,9 @@ const Mail = () => {
         //           <div className="flex justify-center">
         //             <button
         //               type="submit"
-        //               className="flex w-full justify-center rounded-md border border-transparent bg-primary-300 px-3.5 py-2.5 text-base font-semibold text-gray-800 shadow-sm lg:w-auto hover:bg-secondary hover:text-white transition"
+        //               className="flex w-full justify-center rounded-md border border-transparent bg-orange-400 px-3.5 py-2.5 text-base font-semibold text-gray-800 shadow-sm lg:w-auto hover:bg-secondary hover:text-white transition"
         //             >
-        //             {/* <div className="text-sm font-semibold hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300 flex justify-center items-center gap-1 hover:-translate-y-1 transition"></div> */}
+        //             {/* <div className="text-sm font-semibold hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 flex justify-center items-center gap-1 hover:-translate-y-1 transition"></div> */}
         //               Submit
         //             </button>
         //           </div>

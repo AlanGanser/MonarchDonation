@@ -37,9 +37,9 @@ const Partners = () => {
               Our Partners
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
-              egestas tempus tellus etiam sed. Quam a scelerisque amet
-              ullamcorper eu enim et fermentum, augue.
+              N orem ipsum dolor sit amets, nsecteture I piscing elit. Et,
+              eggestas temepus tellus G tsiam sed. Quams a scelerisques amet
+              G ullamcorper eu enim fret fermentums, A ugue.
             </p>
           </div>
           <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">

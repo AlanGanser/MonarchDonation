@@ -1,48 +1,41 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef, RefObject, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { Dialog } from "@headlessui/react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
-import { AnyAaaaRecord } from "dns";
 
-interface Page {
-    name: string;
-    href: string;
-    secondSectionID: string;
-}
-
-const navigation: Page[] = [
+const navigation = [
     {
         name: "Home",
         href: "/",
-        secondSectionID: "about-section",
     },
     {
         name: "Schedule Donation",
         href: "/schedule-donation",
-        secondSectionID: "about-section",
     },
     {
         name: "About",
         href: "/about",
-        secondSectionID: "team",
     },
     {
         name: "Contact",
         href: "/contact",
-        secondSectionID: "faq",
     },
 ];
 
-//const Map = ({ height }: { height: number | string }) => {
-//, navRef?, navStyle
-const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; navStyle?: string }) => {
-    const { currentPage, navRef, navStyle } = props;
+const Navbar = () => {
+    const currentPage = "/" + (useSelectedLayoutSegment() || "");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    
+    useEffect(() => {
+        setMobileMenuOpen(false)
+    }, [currentPage])
 
     return (
-        <header ref={navRef} className={"transition-all inset-x-0 duration-300 z-40 " + (navStyle || "absolute top-0")}>
+        <header>
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-3 lg:px-8"
                 aria-label="Global"
@@ -63,7 +56,7 @@ const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; nav
                     {navigation.map((page) => {
                         let activeStyles = "";
                         let inactiveStyles = "";
-                        if (page === currentPage) {
+                        if (page.href === currentPage) {
                             activeStyles = " font-bold";
                         } else {
                             inactiveStyles = " font-semibold";
@@ -88,7 +81,7 @@ const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; nav
                     </Link>
                     <Link
                         href="#"
-                        className="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300 transition"
+                        className="rounded-md bg-primary-300 px-3 py-2 text-sm font-semibold text-grey-900 shadow-sm hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300 transition"
                     >
                         Sign up
                     </Link>
@@ -139,7 +132,7 @@ const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; nav
                                 {navigation.map((page) => {
                                     let activeStyles = "";
                                     let inactiveStyles = "";
-                                    if (page === currentPage) {
+                                    if (page.href === currentPage) {
                                         activeStyles = " font-bold";
                                     } else {
                                         inactiveStyles = " font-semibold";
@@ -175,73 +168,4 @@ const Navbar = (props: { currentPage: Page; navRef?: RefObject<HTMLElement>; nav
     );
 };
 
-const NavbarWrapper = () => {
-    // runs once
-    const navRef = useRef<HTMLElement>(null);
-    const navStyles = {
-        hidden: "hidden",
-        stick: "fixed inset-x-0 top-0 bg-white",
-        stickhidden: navRef.current ? `fixed inset-x-0 -top-[${navRef.current.offsetHeight}px] bg-white` : '', // randomly causing errors when plugins are updated //
-    };
-
-    const [navDisplay, setNavDisplay] = useState<string>(navStyles.hidden);
-
-    const [previousScrollPosition, setPreviousScrollPosition] = useState<number>(window.scrollY);
-
-    let currentPage: Page = navigation[0];
-    for (let i = 0; i < navigation.length; i++) {
-        if (useSelectedLayoutSegment() === (navigation[i].href.slice(1) || null)) {
-            currentPage = navigation[i];
-        }
-    }
-
-    const updateNavDisplay = useCallback(() => {
-        let newNavDisplay = "";
-        console.log(navDisplay);
-        let secondSection = document.getElementById(currentPage.secondSectionID) as HTMLElement;
-
-        console.log(navDisplay)
-        if (secondSection == null) {
-            newNavDisplay = navStyles.hidden;
-        } else if (secondSection.getBoundingClientRect().top <= 0) {
-            // if below second section
-            if (window.innerWidth < 768) {
-                // small display
-                if (window.scrollY > previousScrollPosition) {
-                    // scroll down
-                    newNavDisplay = navStyles.stickhidden;
-                } else {
-                    // scroll up
-                    newNavDisplay = navStyles.stick;
-                }
-            } else {
-                newNavDisplay = navStyles.stick;
-            }
-        } else if (secondSection.getBoundingClientRect().top > 0) {
-            newNavDisplay = navStyles.stickhidden;
-        }
-
-        setNavDisplay(newNavDisplay);
-        setPreviousScrollPosition(window.scrollY);
-    }, [previousScrollPosition]);
-
-    useEffect(() => {
-        // runs every time the window is scrolled
-        window.addEventListener("resize", updateNavDisplay);
-        window.addEventListener("scroll", updateNavDisplay);
-        return () => {
-            window.removeEventListener("resize", updateNavDisplay);
-            window.removeEventListener("scroll", updateNavDisplay);
-        };
-    }, [previousScrollPosition, updateNavDisplay]);
-
-    return (
-        // relodes when state changes
-        <>
-            {(navDisplay === navStyles.hidden || navDisplay === navStyles.stickhidden) && <Navbar currentPage={currentPage} />}
-            <Navbar currentPage={currentPage} navRef={navRef} navStyle={navDisplay} />
-        </>
-    );
-};
-
-export default NavbarWrapper;
+export default Navbar;

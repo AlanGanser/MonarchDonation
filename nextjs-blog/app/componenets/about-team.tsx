@@ -4,7 +4,7 @@ import Link from "next/link"; // TODO
 const people = [
     {
         name: "Hong Yi Lee",
-        role: "Front-end Design", // TODO
+        role: "Marketing", // TODO
         imageUrl:
             "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
         twitterUrl: "#", // TODO
@@ -31,7 +31,7 @@ const people = [
 
 const Team = () => {
     return (
-        <div id="team" className="bg-white py-24 sm:py-32">
+        <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our team</h2>

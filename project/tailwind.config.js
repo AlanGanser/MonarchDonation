@@ -3,19 +3,15 @@ module.exports = {
   content: [
     "./app/**/*.tsx"
   ],
+  // purge: false,
+  // safelist: [
+  //   {
+  //     pattern: /-top-./},
+  // ],
   theme: {
     extend: {
       fontFamily: {
         'roboto-serif': ['"Roboto Serif"', 'serif'],
-      },
-      colors: {
-        'primary': {
-          300: '#8fced1',
-        },
-        // 'secondary': '#D32C4D',8fced1
-        'secondary': '#6278A7',
-        'tertiary': '#BE2457',
-        'quaternary': '#752569',
       },
     },
   },

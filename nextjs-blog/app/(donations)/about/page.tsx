@@ -1,6 +1,6 @@
-import Team from "./about-team";
-import Hero from "./about-hero";
-import Info from "./about-info";
+import Team from "../../componenets/about-team";
+import Hero from "../../componenets/about-hero";
+import Info from "../../componenets/about-info";
 
 const Page = () => {
     return (

@@ -1,4 +1,4 @@
-import Calendar from "../../../componenets/admin/admin-calendar"
+import Calendar from "../../../../componenets/admin/admin-calendar"
 
 const Page = () => {
     return (

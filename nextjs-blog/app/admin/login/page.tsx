@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { FormProvider, useForm } from "react-hook-form";
-import Input from "../../componenets/form/input";
-import { passwordValidation, usernameValidation } from "../../componenets/form/inputValidation";
+import Input from "../../../componenets/form/input";
+import { passwordValidation, usernameValidation } from "../../../componenets/form/inputValidation";
 
 const styles = {
     labelStyles: "",

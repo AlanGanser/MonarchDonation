@@ -1,4 +1,4 @@
-import Navbar from "../componenets/navbar";
+import Navbar from "../../componenets/navbar";
 
 const DonateLayout = ({ children }: { children: React.ReactNode }) => {
     return (

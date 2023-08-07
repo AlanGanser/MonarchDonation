@@ -66,7 +66,7 @@ const Hero = () => {
                             <div className="mt-10">
                                 <Link
                                     href="#"
-                                    className="rounded-md bg-orange-500  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 flex justify-center items-center gap-1 hover:-translate-y-1 transition"
+                                    className="rounded-md bg-orange-500  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 flex justify-center items-center gap-1 transition"
                                 >
                                     Donate Now
                                     <BsChevronRight aria-hidden="true" />

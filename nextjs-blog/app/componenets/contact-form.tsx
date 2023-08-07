@@ -38,7 +38,7 @@ const Form = () => {
                 <div className="flex flex-col items-center md:flex-row md:justify-between gap-y-6">
                     <button
                         onClick={onSubmit}
-                        className="flex w-full justify-center rounded-md border border-transparent bg-primary-300 px-3.5 py-2.5 text-base font-semibold text-white shadow-sm md:w-auto hover:bg-secondary transition disabled:bg-orange-300 disabled:text-grey-800"
+                        className="flex w-full justify-center rounded-md border border-transparent bg-orange-500 px-3.5 py-2.5 text-base font-semibold text-white shadow-sm md:w-auto hover:bg-orange-400 transition"
                     >
                         Submit
                     </button>
@@ -55,9 +55,6 @@ const Form = () => {
                         <HiMiniCheckCircle /> Form has been submitted successfully
                     </Transition>
                 </div>
-                {/* <div className="bg-white ">  */}
-                {/* MAKE A DIV THAT BASICALLY SAVES SPACE FOR THE TRANSITITON */}
-                {/* </div> */}
             </form>
         </FormProvider>
     );

@@ -19,7 +19,7 @@ const Mail = () => {
                             <dt className="sr-only">Email</dt>
                             <dd className="flex items-center">
                                 <HiOutlineEnvelope className="h-6 w-6 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                                <span className="ml-3">support@example.com</span>
+                                <span className="ml-3">monarchdonations@gmail.com</span>
                             </dd>
                         </dl>
                     </div>

@@ -6,7 +6,7 @@ const people = [
         name: "Hong Yi Lee",
         role: "Front-end Developer", // TODO
         imageUrl:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+            "/../public/images/hongyi.jpeg",
         twitterUrl: "#", // TODO
         linkedinUrl: "#",
     },
@@ -14,7 +14,7 @@ const people = [
         name: "Alan Ganser",
         role: "Full-stack Developer",
         imageUrl:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+            "/../public/images/alan.jpg",
         twitterUrl: "#",
         linkedinUrl: "#",
     },
@@ -22,7 +22,7 @@ const people = [
         name: "Oscar Gonzalez",
         role: "Marketing", // TODO
         imageUrl:
-            "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
+            "/../public/images/hongyi.jpeg",
         twitterUrl: "#",
         linkedinUrl: "#",
     },
@@ -46,10 +46,12 @@ const Team = () => {
                 >
                     {people.map((person) => (
                         <li key={person.name}>
-                            <img
+                            <Image
                                 className="aspect-[3/2] w-full rounded-2xl object-cover"
                                 src={person.imageUrl}
                                 alt=""
+                                height={200}
+                                width={300}
                             />
                             <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
                                 {person.name}

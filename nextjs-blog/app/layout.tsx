@@ -1,17 +1,15 @@
 import "../styles/globals.css";
 
-const RootLayout = ({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) => {
+import { ClerkProvider } from "@clerk/nextjs";
+
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-      <html lang="en">
-        <body>
-          {children}
-        </body>
-      </html>
+        <ClerkProvider>
+            <html lang="en">
+                <body>{children}</body>
+            </html>
+        </ClerkProvider>
     );
-  }
-  
-  export default RootLayout
+};
+
+export default RootLayout;

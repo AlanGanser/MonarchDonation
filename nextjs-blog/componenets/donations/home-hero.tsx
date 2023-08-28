@@ -74,7 +74,7 @@ const Hero = () => {
                             </div>
                         </div>
                     </div>
-                    <img /* TODO CHANGE TO IMAGE */
+                    <img /* TODO CHANGE TO INSTA POST */
                         src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
                         alt="Image of donations."
                         className="hidden w-[57rem] max-w-none rounded-xl shadow-xl ring-1 -ml-0 ring-gray-400/10 lg:block"

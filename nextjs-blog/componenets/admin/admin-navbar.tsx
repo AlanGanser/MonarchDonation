@@ -8,7 +8,7 @@ import { HiBars3, HiXMark, HiOutlineHome, HiOutlineCalendar } from "react-icons/
 import { usePathname } from "next/navigation";
 import { IconType } from "react-icons/lib";
 
-function classNames(...classes: any) {
+function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
@@ -16,13 +16,10 @@ const AdminNavbar = ({ children }: { children: React.ReactNode }) => {
     let currentPage = usePathname();
 
     const navigation: { name: string; href: string; icon: IconType; current?: boolean }[] = [
-        { name: "Dashboard", href: "/admin/control", icon: HiOutlineHome },
-        { name: "Calendar", href: "/admin/control/calendar", icon: HiOutlineCalendar },
+        { name: "Dashboard", href: "/admin/control", icon: HiOutlineHome, current: currentPage === "/admin/control" },
+        { name: "Calendar", href: "/admin/control/calendar", icon: HiOutlineCalendar, current: currentPage === "/admin/control/calendar",
+        },
     ];
-
-    navigation.map((page) => {
-        page.current = page.href === currentPage ? true : false;
-    });
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -155,10 +152,7 @@ const AdminNavbar = ({ children }: { children: React.ReactNode }) => {
                                     </ul>
                                 </li>
                                 <li className="-mx-6 mt-auto">
-                                    <a
-                                        href="#"
-                                        className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
-                                    >
+                                    <div className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white">
                                         {/* <img
                                             className="h-8 w-8 rounded-full bg-gray-800"
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -168,7 +162,7 @@ const AdminNavbar = ({ children }: { children: React.ReactNode }) => {
                                             A
                                         </span>
                                         <span aria-hidden="true">Admin profile</span>
-                                    </a>
+                                    </div>
                                 </li>
                             </ul>
                         </nav>

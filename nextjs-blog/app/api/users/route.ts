@@ -1,25 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
-import connectMongoDB from "../../../libs/mongodb";
-import { User } from "../../../models/users";
-import mongoose from "mongoose";
+import prisma from "../../../lib/prisma";
+import { User } from "@prisma/client";
 
 export async function POST(request: NextRequest) {
-    const { firstName, lastName, email, password } = await request.json()
-    console.log(firstName, lastName, email, password);
-    if (mongoose.connection.readyState === 0) await connectMongoDB(); // if already connected, don't make new connection
-    await User.create({ firstName, lastName, email, password });
-    return NextResponse.json({ message: "User Created" }, { status: 201 });
+    const { id, firstName, lastName, email, password: inputedPassword }: { id: string; firstName?:string; lastName: string; email: string; password: string } = await request.json();
+    const user = await prisma.user.create({
+        data: {
+            id: id,
+            firstName: firstName || "",
+            lastName: lastName || "",
+            email: email
+        },
+    });
+
+    return NextResponse.json({ user }, { status: 201 });
 }
 
-export async function GET() {
-    if (mongoose.connection.readyState === 0) await connectMongoDB();
-    const users = await User.find();
-    return NextResponse.json({ users });
-}
-
-export async function DELETE(request: NextRequest) {
-    const id = request.nextUrl.searchParams.get("id");
-    if (mongoose.connection.readyState === 0) await connectMongoDB();
-    await User.findByIdAndDelete(id);
-    return NextResponse.json({ message: "User Deleted" }, { status: 200 });
+export async function GET(request: NextRequest) {
+    const { searchParams } = new URL(request.url);
+    const ids = searchParams.getAll("id");
+    let users: User[] = [];
+    if (ids.length > 0) {
+        users = await prisma.user.findMany({
+            where: {
+                id: {
+                    in: ids,
+                },
+            },
+        });
+    } else {
+        users = await prisma.user.findMany();
+    }
+    return NextResponse.json({ users }, { status: 200 });
 }

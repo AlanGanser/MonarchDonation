@@ -1,11 +1,11 @@
 "use client";
 
 import { FormProvider, useForm } from "react-hook-form";
-import { nameValidation, subjectValidation, messageValidation, emailValidation } from "./form/inputValidation";
+import { nameValidation, subjectValidation, messageValidation, emailValidation } from "../form/inputValidation";
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { HiMiniCheckCircle } from "react-icons/hi2";
-import Input from "./form/input";
+import Input from "../form/input";
 
 const styles = {
     labelStyles: "text-base font-semibold",

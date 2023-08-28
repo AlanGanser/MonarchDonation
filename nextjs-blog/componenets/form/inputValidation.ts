@@ -4,8 +4,7 @@ export interface Validation {
     label: string;
     type: "text" | "textarea" | "password" | "number" | "email";
     id: string;
-    placeholder: string;
-    autoComplete: "off" | "name" | "email" | "current-password" | "username";
+    autoComplete: "off" | "given-name" | "family-name" | "email" | "current-password" | "username";
     validation: RegisterOptions;
 }
 
@@ -13,12 +12,11 @@ export const usernameValidation: Validation = {
     label: "Username",
     type: "text",
     id: "username",
-    placeholder: "enter your username ...",
     autoComplete: "username",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
         maxLength: {
             value: 15,
@@ -27,34 +25,31 @@ export const usernameValidation: Validation = {
     },
 }
 
-export const nameValidation: Validation = {
-    label: "Name",
+export const firstNameValidation: Validation = {
+    label: "First name",
     type: "text",
-    id: "name",
-    placeholder: "write your name ...",
-    autoComplete: "name",
-    validation: {
-        required: {
-            value: true,
-            message: "required",
-        },
-        maxLength: {
-            value: 30,
-            message: "30 characters max",
-        },
-    },
+    id: "fistName",
+    autoComplete: "given-name",
+    validation: {},
+};
+
+export const lastNameValidation: Validation = {
+    label: "Last name",
+    type: "text",
+    id: "lastName",
+    autoComplete: "family-name",
+    validation: {},
 };
 
 export const subjectValidation: Validation = {
     label: "Subject",
     type: "text",
     id: "subject",
-    placeholder: "write a subject ...",
     autoComplete: "off",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
         maxLength: {
             value: 100,
@@ -67,12 +62,11 @@ export const messageValidation: Validation = {
     label: "Message",
     type: "textarea",
     id: "message",
-    placeholder: "write a message ...",
     autoComplete: "off",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
         maxLength: {
             value: 700,
@@ -85,12 +79,11 @@ export const passwordValidation: Validation = {
     label: "Password",
     type: "password",
     id: "password",
-    placeholder: "enter your password ...",
     autoComplete: "current-password",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
         minLength: {
             value: 6,
@@ -103,30 +96,28 @@ export const numValidation: Validation = {
     label: "Number",
     type: "number",
     id: "num",
-    placeholder: "type a number ...",
     autoComplete: "off",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
     },
 };
 
 export const emailValidation: Validation = {
-    label: "Email Address",
+    label: "Email address",
     type: "email",
     id: "email",
-    placeholder: "enter your email address ...",
     autoComplete: "email",
     validation: {
         required: {
             value: true,
-            message: "required",
+            message: "Required",
         },
         pattern: {
             value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: "not a valid email",
+            message: "Not a valid email",
         },
     },
 };

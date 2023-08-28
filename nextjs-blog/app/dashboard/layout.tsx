@@ -1,10 +1,9 @@
-import Navbar from "../../componenets/donations/donations-navbar";
+import Navbar from "../../componenets/dashboard/dashboard-navbar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <Navbar />
-            {children}
+            <Navbar>{children}</Navbar>
         </>
     );
 };

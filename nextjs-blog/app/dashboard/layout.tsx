@@ -1,9 +1,16 @@
-import Navbar from "../../componenets/dashboard/dashboard-navbar";
+import { User } from "@clerk/nextjs/dist/types/server";
+import Navbar from "../../componenets/dashboard/dashboardNavbar";
+import { currentUser } from "@clerk/nextjs";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+export const metadata = {
+    title: "Dashboard"
+};
+
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+    const user = await currentUser() as User;
     return (
         <>
-            <Navbar>{children}</Navbar>
+            <Navbar user={user}>{children}</Navbar>
         </>
     );
 };

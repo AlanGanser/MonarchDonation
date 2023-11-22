@@ -1,9 +1,13 @@
-import UserSignUp from "../../componenets/sign-up/userSignUp";
+import { currentUser } from "@clerk/nextjs";
+import UserSignUp from "../../componenets/login/userSignUp";
+import { redirect } from "next/navigation";
 
-const Page = () => {
-    return (
-        <UserSignUp />
-    )
+const Page = async () => {
+    const user = await currentUser()
+    if (user) {
+        redirect("/dashboard/user");
+    }
+    return <UserSignUp />;
 };
 
 export default Page;

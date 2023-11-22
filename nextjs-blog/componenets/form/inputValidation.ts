@@ -2,9 +2,9 @@ import { RegisterOptions } from "react-hook-form";
 
 export interface Validation {
     label: string;
-    type: "text" | "textarea" | "password" | "number" | "email";
+    type: "text" | "textarea" | "password" | "number" | "email" | "OTP";
     id: string;
-    autoComplete: "off" | "given-name" | "family-name" | "email" | "current-password" | "username";
+    autoComplete: "off" | "given-name" | "family-name" | "email" | "current-password" | "username" | "new-password" | "one-time-code";
     validation: RegisterOptions;
 }
 
@@ -23,12 +23,12 @@ export const usernameValidation: Validation = {
             message: "15 characters max",
         },
     },
-}
+};
 
 export const firstNameValidation: Validation = {
     label: "First name",
     type: "text",
-    id: "fistName",
+    id: "firstName",
     autoComplete: "given-name",
     validation: {},
 };
@@ -58,23 +58,6 @@ export const subjectValidation: Validation = {
     },
 };
 
-export const messageValidation: Validation = {
-    label: "Message",
-    type: "textarea",
-    id: "message",
-    autoComplete: "off",
-    validation: {
-        required: {
-            value: true,
-            message: "Required",
-        },
-        maxLength: {
-            value: 700,
-            message: "700 characters max",
-        },
-    },
-};
-
 export const passwordValidation: Validation = {
     label: "Password",
     type: "password",
@@ -86,8 +69,25 @@ export const passwordValidation: Validation = {
             message: "Required",
         },
         minLength: {
-            value: 6,
-            message: "6 characters minimum",
+            value: 8,
+            message: "8 characters minimum",
+        },
+    },
+};
+
+export const newPasswordValidation: Validation = {
+    label: "Password",
+    type: "password",
+    id: "newPassword",
+    autoComplete: "new-password",
+    validation: {
+        required: {
+            value: true,
+            message: "Required",
+        },
+        minLength: {
+            value: 8,
+            message: "8 characters minimum",
         },
     },
 };
@@ -121,3 +121,24 @@ export const emailValidation: Validation = {
         },
     },
 };
+
+export const codeValidation: Validation = {
+    label: "Code",
+    type: "number",
+    id: "otp",
+    autoComplete: "one-time-code",
+    validation: {
+        required: {
+            value: true,
+            message: "6 characters required",
+        },
+        minLength: {
+            value: 6,
+            message: "6 characters required",
+        },
+        maxLength: {
+            value: 6,
+            message: "6 characters required",
+        },
+    }, 
+}

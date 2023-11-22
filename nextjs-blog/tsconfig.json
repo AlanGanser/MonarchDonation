@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "../index.tsx"  ],
+, "../index.tsx", "app/dashboard/donations/[donationId]"  ],
   "exclude": [
     "node_modules"
   ]

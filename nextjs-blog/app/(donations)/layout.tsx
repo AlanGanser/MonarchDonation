@@ -1,10 +1,15 @@
-import Navbar from "../../componenets/donations/donations-navbar";
+import { currentUser } from "@clerk/nextjs";
+import Navbar from "../../componenets/donations/homeNavbar";
+import Footer from "../../componenets/general/footer";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+    const user = await currentUser();
+
     return (
         <>
-            <Navbar />
+            <Navbar user={user} />
             {children}
+            <Footer />
         </>
     );
 };

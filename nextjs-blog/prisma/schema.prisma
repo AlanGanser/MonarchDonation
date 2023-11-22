@@ -9,9 +9,10 @@ datasource db {
 }
 
 model Item {
-    id         String   @id @default(cuid())
+    id         String   @id @unique @default(cuid())
     name       String
-    condition  String?
+    catagory   String
+    quantity   Int
     donation   Donation @relation(fields: [donationId], references: [id], onDelete: Cascade)
     donationId String
 
@@ -19,9 +20,11 @@ model Item {
 }
 
 model Donation {
-    id        String   @id @default(cuid())
+    id        String   @id @unique @default(cuid())
     address   String
-    date      DateTime
+    date      DateTime?
+    startTime DateTime? @map("start_time")
+    endTime   DateTime? @map("end_time")
     items     Item[]
     createdAt DateTime @default(now()) @map(name: "created_at")
     updatedAt DateTime @updatedAt @map(name: "updated_at")
@@ -32,14 +35,15 @@ model Donation {
 }
 
 model User {
-    id        String     @id
-    firstName String?    @map(name: "first_name")
-    lastName  String?    @map(name: "last_name")
-    email     String     @unique
-    type      String     @default("User")
-    createdAt DateTime   @default(now()) @map(name: "created_at")
-    updatedAt DateTime   @updatedAt @map(name: "updated_at")
-    donations Donation[]
+    id             String     @id @unique
+    firstName      String?    @map(name: "first_name")
+    lastName       String?    @map(name: "last_name")
+    defaultAddress String?    @map(name: "default_address")
+    email          String     @unique
+    type           String     @default("User")
+    createdAt      DateTime   @default(now()) @map(name: "created_at")
+    updatedAt      DateTime   @updatedAt @map(name: "updated_at")
+    donations      Donation[]
 
     @@map(name: "users")
 }

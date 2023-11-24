@@ -1,6 +1,6 @@
-import Hero from "../../componenets/contact-hero";
-import Faq from "../../componenets/contact-faq";
-import Mail from "../../componenets/contact-mail";
+import Hero from "../../../componenets/donations/contact/hero";
+import Faq from "../../../componenets/donations/contact/faq";
+import Mail from "../../../componenets/donations/contact/mail";
 
 const Page = () => {
     return (

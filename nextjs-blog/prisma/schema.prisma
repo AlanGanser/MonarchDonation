@@ -1,0 +1,49 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Item {
+    id         String   @id @unique @default(cuid())
+    name       String
+    catagory   String
+    quantity   Int
+    donation   Donation @relation(fields: [donationId], references: [id], onDelete: Cascade)
+    donationId String
+
+    @@map(name: "items")
+}
+
+model Donation {
+    id        String   @id @unique @default(cuid())
+    address   String
+    date      DateTime?
+    startTime DateTime? @map("start_time")
+    endTime   DateTime? @map("end_time")
+    items     Item[]
+    createdAt DateTime @default(now()) @map(name: "created_at")
+    updatedAt DateTime @updatedAt @map(name: "updated_at")
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId    String
+
+    @@map(name: "donations")
+}
+
+model User {
+    id             String     @id @unique
+    firstName      String?    @map(name: "first_name")
+    lastName       String?    @map(name: "last_name")
+    defaultAddress String?    @map(name: "default_address")
+    email          String     @unique
+    type           String     @default("User")
+    createdAt      DateTime   @default(now()) @map(name: "created_at")
+    updatedAt      DateTime   @updatedAt @map(name: "updated_at")
+    donations      Donation[]
+
+    @@map(name: "users")
+}

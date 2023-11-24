@@ -1,12 +1,17 @@
-import Navbar from "../componenets/navbar";
+import { currentUser } from "@clerk/nextjs";
+import Navbar from "../../componenets/donations/homeNavbar";
+import Footer from "../../componenets/general/footer";
 
-const DonateLayout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+    const user = await currentUser();
+
     return (
         <>
-            <Navbar />
+            <Navbar user={user} />
             {children}
+            <Footer />
         </>
     );
 };
 
-export default DonateLayout;
+export default Layout;

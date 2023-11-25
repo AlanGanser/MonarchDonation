@@ -1,7 +1,7 @@
 import React from "react";
 
-import Calendar from "../../../components/dashboard/calendar";
-import DonationFrom from "../../../components/dashboard/updateDonationForm";
+import Calendar from "../../../componenets/dashboard/calendar";
+import DonationFrom from "../../../componenets/dashboard/updateDonationForm";
 import { startOfToday } from "date-fns";
 import prisma from "../../../lib/prisma";
 import { currentUser } from "@clerk/nextjs";

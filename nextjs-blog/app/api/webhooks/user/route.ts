@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     if (eventType === "user.created") {
         const { id, first_name: firstName, last_name: lastName } = evt.data;
         const { email_address: email } = evt.data.email_addresses[0];
-        await fetch("https://monarchdonations.org/api/users", {
+        await fetch("http://localhost:3000/api/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -62,14 +62,14 @@ export async function POST(req: Request) {
     if (eventType === "user.deleted") {
         console.log("user delete webhook recieved");
         const { id } = evt.data;
-        await fetch(`https://monarchdonations.org/api/users/${id}`, {
+        await fetch(`http:localhost:3000/api/users/${id}`, {
             method: "DELETE",
         });
     }
     if (eventType === "user.updated") {
         const { id, first_name: firstName, last_name: lastName } = evt.data;
         const { email_address: email } = evt.data.email_addresses[0];
-        await fetch(`https://monarchdonations.org/api/users/${id}`, {
+        await fetch(`http:localhost:3000/api/users/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

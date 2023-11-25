@@ -11,6 +11,7 @@ export default authMiddleware({
         "/sign-up",
         "/sso-callback",
         "/reset-password",
+        "/api/webhooks(.*)",
     ],
 });
 

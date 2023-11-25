@@ -14,6 +14,7 @@ export default authMiddleware({
         "/api/webhooks(.*)",
         "/api/users(.*)"
     ],
+    debug: true,
 });
 
 export const config = {

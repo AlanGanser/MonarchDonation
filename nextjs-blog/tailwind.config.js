@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./app/**/*.tsx",
-    "./componenets/**/*.tsx"
+    "./components/**/*.tsx"
   ],
   theme: {
     extend: {

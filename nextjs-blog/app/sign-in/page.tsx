@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-import UserSignIn from "../../componenets/login/userSignIn";
+import UserSignIn from "../../components/login/userSignIn";
 import { redirect } from 'next/navigation'
 
 

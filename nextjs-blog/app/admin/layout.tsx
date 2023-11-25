@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-import AdminNavbar from "../../componenets/admin/adminNavbar";
+import AdminNavbar from "../../components/admin/adminNavbar";
 import { User } from "@clerk/nextjs/dist/types/server";
 import prisma from "../../lib/prisma";
 import { notFound } from "next/navigation";

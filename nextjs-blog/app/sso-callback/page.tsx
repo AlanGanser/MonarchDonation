@@ -3,7 +3,7 @@
 import { useSignIn, useSignUp, useUser } from "@clerk/nextjs";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import LoadingSpinner from "../../componenets/general/loadingSpinner";
+import LoadingSpinner from "../../components/general/loadingSpinner";
 
 const SSOCallBack = () => {
     const user = useUser()

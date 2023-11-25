@@ -11,7 +11,7 @@ const cards = [
         phoneNumber: "(915) 792-1701",
     },
     {
-        name: "Oscar Gonzales",
+        name: "Oscar Gonzalez",
         email: "oscagoa05@gmail.com",
         phoneNumber: "(915) 259-4504",
     },

@@ -1,6 +1,6 @@
 import { currentUser } from "@clerk/nextjs";
-import Navbar from "../../componenets/donations/homeNavbar";
-import Footer from "../../componenets/general/footer";
+import Navbar from "../../components/donations/homeNavbar";
+import Footer from "../../components/general/footer";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
     const user = await currentUser();

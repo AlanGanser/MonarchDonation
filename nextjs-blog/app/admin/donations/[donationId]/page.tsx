@@ -1,5 +1,5 @@
 import { Donation, Item, User } from "@prisma/client";
-import ViewDonation from "../../../../componenets/admin/viewDonation";
+import ViewDonation from "../../../../components/admin/viewDonation";
 import prisma from "../../../../lib/prisma";
 
 const Page = async ({ params }: { params: { donationId: string } })=> {

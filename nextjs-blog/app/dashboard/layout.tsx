@@ -1,5 +1,5 @@
 import { User } from "@clerk/nextjs/dist/types/server";
-import Navbar from "../../componenets/dashboard/dashboardNavbar";
+import Navbar from "../../components/dashboard/dashboardNavbar";
 import { currentUser } from "@clerk/nextjs";
 
 export const metadata = {

@@ -1,10 +1,10 @@
 "use client";
 
-import Hero from "../../componenets/donations/home/hero";
+import Hero from "../../components/donations/home/hero";
 
-import About from "../../componenets/donations/home/about";
-import Partners from "../../componenets/donations/home/partners";
-import Map from "../../componenets/donations/home/map";
+import About from "../../components/donations/home/about";
+import Partners from "../../components/donations/home/partners";
+import Map from "../../components/donations/home/map";
 
 // import { Metadata } from 'next'
  

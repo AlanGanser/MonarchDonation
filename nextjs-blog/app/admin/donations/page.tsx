@@ -1,4 +1,4 @@
-import Donations from "../../../componenets/admin/donations"
+import Donations from "../../../components/admin/donations"
 
 const Page = () => {
     return (

@@ -1,13 +1,15 @@
-import type { IncomingHttpHeaders } from "http";
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { WebhookRequiredHeaders } from "svix";
-import type { WebhookEvent } from "@clerk/nextjs/server";
 import { Webhook } from "svix";
 import { headers } from "next/headers";
-
-const webhookSecret: string = process.env.WEBHOOK_SECRET || "";
+import { WebhookEvent } from "@clerk/nextjs/server";
 
 export async function POST(req: Request) {
+    console.log("hello");
+    const webhookSecret: string = process.env.WEBHOOK_SECRET || "";
+
+    if (!webhookSecret) {
+        throw new Error("Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local");
+    }
+
     const payload = await req.json();
     const payloadString = JSON.stringify(payload);
     const headerPayload = headers();
@@ -33,8 +35,7 @@ export async function POST(req: Request) {
         // Verify the webhook payload and headers
         evt = wh.verify(payloadString, svixHeaders) as WebhookEvent;
     } catch (err) {
-        console.log("error with webhook");
-        console.log(err)
+        console.error("Error verifying webhook:", err)
         return new Response("Error occured", {
             status: 400,
         });
@@ -59,14 +60,14 @@ export async function POST(req: Request) {
         });
     }
     if (eventType === "user.deleted") {
-        console.log('user delete webhook recieved');
+        console.log("user delete webhook recieved");
         const { id } = evt.data;
         await fetch(`http:localhost:3000/api/users/${id}`, {
             method: "DELETE",
         });
     }
     if (eventType === "user.updated") {
-        const { id, first_name: firstName, last_name: lastName  } = evt.data
+        const { id, first_name: firstName, last_name: lastName } = evt.data;
         const { email_address: email } = evt.data.email_addresses[0];
         await fetch(`http:localhost:3000/api/users/${id}`, {
             method: "PUT",
@@ -80,8 +81,8 @@ export async function POST(req: Request) {
             }),
         });
     }
-    
+
     return new Response("", {
-        status: 201,
+        status: 200,
     });
 }

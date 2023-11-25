@@ -1,9 +1,9 @@
-import CreateDonationLink from "../../componenets/dashboard/createDonationLink";
-import DonationList from "../../componenets/dashboard/donationList";
+import CreateDonationLink from "../../components/dashboard/createDonationLink";
+import DonationList from "../../components/dashboard/donationList";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/dist/types/server";
 import prisma from "../../lib/prisma";
-import NeededItems from "../../componenets/donations/home/neededItems";
+import NeededItems from "../../components/donations/home/neededItems";
 
 const Page = async () => {
     const user = (await currentUser()) as User;

@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-import UserSignUp from "../../componenets/login/userSignUp";
+import UserSignUp from "../../components/login/userSignUp";
 import { redirect } from "next/navigation";
 
 const Page = async () => {

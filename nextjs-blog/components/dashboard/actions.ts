@@ -38,7 +38,7 @@ export const updateUser = async (
 };
 
 type ItemSchema = {
-    catagory: "Clothing" | "Food" | "Hygine" | "Home supplies" | "Other";
+    catagory: "Clothing" | "Food" | "Hygiene" | "Home supplies" | "Other";
     name: string;
     quantity: number;
     id?: string | undefined;

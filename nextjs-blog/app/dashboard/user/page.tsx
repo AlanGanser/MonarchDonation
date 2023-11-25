@@ -1,4 +1,4 @@
-import ProfileForm from "../../../componenets/dashboard/profileForm";
+import ProfileForm from "../../../components/dashboard/profileForm";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/dist/types/server";
 import prisma from "../../../lib/prisma";

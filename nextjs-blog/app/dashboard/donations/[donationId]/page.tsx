@@ -1,4 +1,4 @@
-import UpdateDonationFrom from "../../../../componenets/dashboard/updateDonationForm";
+import UpdateDonationFrom from "../../../../components/dashboard/updateDonationForm";
 import { startOfToday } from "date-fns";
 import prisma from "../../../../lib/prisma";
 import { currentUser } from "@clerk/nextjs";

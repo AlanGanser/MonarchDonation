@@ -1,17 +1,17 @@
-const items: {name: string; catagory: "Clothing" | "Food" | "Hygine" | "Home supplies" | "Other"}[] = [
+const items: {name: string; catagory: "Clothing" | "Food" | "Hygiene" | "Home supplies" | "Other"}[] = [
     { name: "Kid's Winter Clothes", catagory: "Clothing"},
     { name: "New Underwear", catagory: "Clothing"},
     { name: "New Socks", catagory: "Clothing"},
     { name: "Men's Jeans", catagory: "Clothing"},
-    { name: "Baby Wipes", catagory: "Hygine"},
+    { name: "Baby Wipes", catagory: "Hygiene"},
     { name: "Winter Shoes", catagory: "Clothing"},
     { name: "Warm Jackets", catagory: "Clothing"},
     { name: "Shampoo", catagory: "Clothing"},
     { name: "Blankets", catagory: "Clothing"},
-    { name: "Cold/Flu medicine", catagory: "Hygine"},
+    { name: "Cold/Flu medicine", catagory: "Hygiene"},
     { name: "Backpacks", catagory: "Other"},
-    { name: "Shaving Razors", catagory: "Hygine"},
-    { name: "Diapers", catagory: "Hygine"},
+    { name: "Shaving Razors", catagory: "Hygiene"},
+    { name: "Diapers", catagory: "Hygiene"},
     { name: "Canned Vegetables", catagory: "Food"},
     { name: "Ground Beef", catagory: "Food"},
     { name: "Chicken Turkeys", catagory: "Food"},
@@ -21,8 +21,6 @@ const items: {name: string; catagory: "Clothing" | "Food" | "Hygine" | "Home sup
     { name: "Eggs", catagory: "Food"},
     { name: "Coffee", catagory: "Food"},
     { name: "Pancake Mix", catagory: "Food"},
-    { name: "Eggs", catagory: "Food"},
-    { name: "Granola Bars", catagory: "Food"},
 ];
 
 function classNames(...classes: string[]) {

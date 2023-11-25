@@ -1,9 +1,9 @@
-import DonationFrom from "../../../../componenets/dashboard/updateDonationForm";
+import DonationFrom from "../../../../components/dashboard/updateDonationForm";
 import { startOfToday } from "date-fns";
 import prisma from "../../../../lib/prisma";
 import { currentUser } from "@clerk/nextjs";
 import { User } from "@clerk/nextjs/dist/types/server";
-import CreateDonationForm from "../../../../componenets/dashboard/createDonationForm";
+import CreateDonationForm from "../../../../components/dashboard/createDonationForm";
 
 const Page = async () => {
     const today = startOfToday();

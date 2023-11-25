@@ -38,7 +38,11 @@ const SSOCallBack = () => {
             }
             router.push("/dashboard");
         };
-        handleSSOLogin();
+        try {
+            handleSSOLogin();
+        } catch (err) {
+            throw err
+        }
     }, [signInLoaded, signUpLoaded]);
 
     return (

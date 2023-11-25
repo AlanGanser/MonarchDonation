@@ -15,21 +15,3 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ user }, { status: 201 });
 }
-
-export async function GET(request: NextRequest) {
-    const { searchParams } = new URL(request.url);
-    const ids = searchParams.getAll("id");
-    let users: User[] = [];
-    if (ids.length > 0) {
-        users = await prisma.user.findMany({
-            where: {
-                id: {
-                    in: ids,
-                },
-            },
-        });
-    } else {
-        users = await prisma.user.findMany();
-    }
-    return NextResponse.json({ users }, { status: 200 });
-}

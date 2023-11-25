@@ -12,9 +12,6 @@ export default authMiddleware({
         "/sso-callback",
         "/reset-password",
     ],
-    ignoredRoutes: [
-        "/api/users", "/api/users/(.*)" // TODO DELETE
-    ]
 });
 
 export const config = {

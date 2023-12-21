@@ -209,14 +209,29 @@ const DashboardNavbar = ({ children, user }: { children: React.ReactNode; user: 
                                     </div>
                                     <div className="mt-3 space-y-1 px-2">
                                         {userNavigation.map((item) => (
-                                            <Disclosure.Button
-                                                key={item.name}
-                                                as="a"
-                                                href={item.href}
-                                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                                            >
-                                                {item.name}
-                                            </Disclosure.Button>
+                                            <div>
+                                                {item.name === "Sign out" ? (
+                                                    <Disclosure.Button
+                                                        key={item.name}
+                                                        as="button"
+                                                        onClick={() => {
+                                                            signOut();
+                                                        }}
+                                                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                                                    >
+                                                        {item.name}
+                                                    </Disclosure.Button>
+                                                ) : (
+                                                    <Disclosure.Button
+                                                        key={item.name}
+                                                        as="a"
+                                                        href={item.href}
+                                                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                                                    >
+                                                        {item.name}
+                                                    </Disclosure.Button>
+                                                )}
+                                            </div>
                                         ))}
                                     </div>
                                 </div>

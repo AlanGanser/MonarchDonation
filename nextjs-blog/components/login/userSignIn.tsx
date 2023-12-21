@@ -125,13 +125,13 @@ const UserSignIn = () => {
                                     <FcGoogle size={20} />
                                     <span className="text-sm font-semibold leading-6">Continue with Google</span>
                                 </button>
-                                <button
+                                {/* <button
                                     className="flex w-full items-center justify-center gap-3 rounded-md border bg-black shadow-sm px-3 py-1.5 text-white transition hover:-translate-y-1 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:transform-none"
                                     onClick={() => signInWith("oauth_apple")}
                                 >
                                     <FaApple size={20} />
                                     <span className="text-sm font-semibold leading-6">Continue with Apple</span>
-                                </button>
+                                </button> */}
                             </div>
                             <p className="mt-9 text-center text-sm text-gray-400">
                                 Don't have an account?{" "}

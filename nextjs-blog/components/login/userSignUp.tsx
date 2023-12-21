@@ -87,7 +87,7 @@ const UserSignUp = () => {
             });
             if (completeSignUp.status === "complete") {
                 await setActive({ session: completeSignUp.createdSessionId });
-                router.push("/dashboard");
+                // router.push("/dashboard");
             }
         } catch (err: any) {
             if (verificationErrorMessages.hasOwnProperty(err.errors[0].code)) {

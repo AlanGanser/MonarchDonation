@@ -8,12 +8,11 @@ import { passwordValidation, usernameValidation } from "../form/inputValidation"
 const styles = {
     labelStyles: "",
     inputStyles: "",
-    errorStyles: "",
 };
 
 const AdminLogin = () => {
     const methods = useForm();
-    const { labelStyles, inputStyles, errorStyles } = styles;
+    const { labelStyles, inputStyles } = styles;
 
     const onSubmit = methods.handleSubmit((data) => {
         methods.reset();
@@ -40,13 +39,11 @@ const AdminLogin = () => {
                             {...usernameValidation}
                             labelStyles={labelStyles}
                             inputStyles={inputStyles}
-                            errorStyles={errorStyles}
                         />
                         <Input
                             {...passwordValidation}
                             labelStyles={labelStyles}
                             inputStyles={inputStyles}
-                            errorStyles={errorStyles}
                         />
 
                         <div>

@@ -3,7 +3,6 @@ import prisma from "../../../../lib/prisma";
 
 export async function DELETE(request: NextRequest, { params }: { params: { userId: string } }) {
     const { userId } = params;
-    console.log(userId);
     const user = await prisma.user.delete({
         where: {
             id: userId,

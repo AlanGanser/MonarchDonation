@@ -81,7 +81,6 @@ const ProfileForm = ({ user, defaultAddress }: { user: User; defaultAddress: str
     const onSubmit = handleSubmit(async ({ addressField: { addressToggle, address }, firstName, lastName }) => {
         try {
             const newAddress = addressToggle ? address : "";
-            console.log(user.id, { address: newAddress, firstName, lastName });
             await updateUser(user.id, { address: newAddress, firstName, lastName });
             reset({ addressField: { addressToggle, address }, firstName, lastName });
         } catch (err) {

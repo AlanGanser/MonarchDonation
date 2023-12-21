@@ -3,7 +3,6 @@ import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 
 export async function POST(req: Request) {
-    console.log("hello");
     const webhookSecret: string = process.env.WEBHOOK_SECRET || "";
 
     if (!webhookSecret) {

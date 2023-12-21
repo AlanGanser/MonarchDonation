@@ -1,7 +1,6 @@
 import React from "react";
 
-import Calendar from "../../../components/dashboard/calendar";
-import DonationFrom from "../../../components/dashboard/updateDonationForm";
+import DonationFrom from "../../../components/dashboard/createDonationForm";
 import { startOfToday } from "date-fns";
 import prisma from "../../../lib/prisma";
 import { currentUser } from "@clerk/nextjs";
@@ -12,7 +11,7 @@ const Page = async () => {
 
     const today = startOfToday()
 
-    const UnavailableDateTimes = await prisma.donation.findMany({
+    const unavailableDateTimes = await prisma.donation.findMany({
         select: {
             startTime: true,
         },
@@ -29,9 +28,12 @@ const Page = async () => {
         },
     });
 
-    const address = addressObj?.defaultAddress as string | null
+    const address = addressObj?.defaultAddress as string
 
-    return <DonationFrom defaultAddress={address} today={today} UnavailableDateTimes={UnavailableDateTimes?.map((obj) => obj.startTime)} />;
+    // userId,
+    // userEmail,
+
+    return <DonationFrom userId={user.id} userEmail={user.emailAddresses[0].emailAddress} defaultAddress={address} today={today} unavailableDateTimes={unavailableDateTimes.map((obj) => obj.startTime as Date)} />;
 };
 
 export default Page;

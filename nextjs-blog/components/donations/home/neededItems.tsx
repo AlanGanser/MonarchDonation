@@ -1,26 +1,26 @@
-const items: {name: string; catagory: "Clothing" | "Food" | "Hygiene" | "Home supplies" | "Other"}[] = [
-    { name: "Kid's Winter Clothes", catagory: "Clothing"},
-    { name: "New Underwear", catagory: "Clothing"},
-    { name: "New Socks", catagory: "Clothing"},
-    { name: "Men's Jeans", catagory: "Clothing"},
-    { name: "Baby Wipes", catagory: "Hygiene"},
-    { name: "Winter Shoes", catagory: "Clothing"},
-    { name: "Warm Jackets", catagory: "Clothing"},
-    { name: "Shampoo", catagory: "Clothing"},
-    { name: "Blankets", catagory: "Clothing"},
-    { name: "Cold/Flu medicine", catagory: "Hygiene"},
-    { name: "Backpacks", catagory: "Other"},
-    { name: "Shaving Razors", catagory: "Hygiene"},
-    { name: "Diapers", catagory: "Hygiene"},
-    { name: "Canned Vegetables", catagory: "Food"},
-    { name: "Ground Beef", catagory: "Food"},
-    { name: "Chicken Turkeys", catagory: "Food"},
-    { name: "Sugar", catagory: "Food"},
-    { name: "Beans", catagory: "Food"},
-    { name: "Oatmeal", catagory: "Food"},
-    { name: "Eggs", catagory: "Food"},
-    { name: "Coffee", catagory: "Food"},
-    { name: "Pancake Mix", catagory: "Food"},
+const items: {name: string; catagory: "Clothing" | "Food" | "Hygiene" | "Home supplies" | "Other"; important: boolean}[] = [
+    { name: "Kid's Winter Clothes", catagory: "Clothing", important: true},
+    { name: "New Socks", catagory: "Clothing", important: true},
+    { name: "Warm Jackets", catagory: "Clothing", important: true},
+    { name: "New Underwear", catagory: "Clothing", important: false},
+    { name: "Men's Jeans", catagory: "Clothing", important: false},
+    { name: "Baby Wipes", catagory: "Hygiene", important: false},
+    { name: "Winter Shoes", catagory: "Clothing", important: false},
+    { name: "Shampoo", catagory: "Clothing", important: false},
+    { name: "Blankets", catagory: "Clothing", important: false},
+    { name: "Cold/Flu medicine", catagory: "Hygiene", important: false},
+    { name: "Backpacks", catagory: "Other", important: false},
+    { name: "Shaving Razors", catagory: "Hygiene", important: false},
+    { name: "Diapers", catagory: "Hygiene", important: false},
+    { name: "Canned Vegetables", catagory: "Food", important: false},
+    { name: "Ground Beef", catagory: "Food", important: false},
+    { name: "Chicken Turkeys", catagory: "Food", important: false},
+    { name: "Sugar", catagory: "Food", important: false},
+    { name: "Beans", catagory: "Food", important: false},
+    { name: "Oatmeal", catagory: "Food", important: false},
+    { name: "Eggs", catagory: "Food", important: false},
+    { name: "Coffee", catagory: "Food", important: false},
+    { name: "Pancake Mix", catagory: "Food", important: false},
 ];
 
 function classNames(...classes: string[]) {
@@ -36,8 +36,8 @@ const NeededItems = ({large} : {large: true | false}) => {
                     <li key={item.name} className="col-span-1 flex justify-between shadow-sm border border-gray-200 bg-white">
                         <div className="flex flex-1 items-center space-x-3 truncate">
                             <span className="relative flex ml-2 h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                <span className={classNames("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", item.important ? "bg-green-500" : "bg-lime-400")}></span>
+                                <span className={classNames("relative inline-flex rounded-full h-2 w-2", item.important ? "bg-green-500" : "bg-lime-400")}></span>
                             </span>
                             <p className="px-2 py-2 text-sm font-medium truncate text-gray-900">{item.name}</p>
                         </div>

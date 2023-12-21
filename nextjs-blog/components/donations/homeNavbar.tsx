@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, Fragment, useContext } from "react";
+import { useState, Fragment } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { NavbarLinks, MobileNavbarLinks } from "./navbarLinks";

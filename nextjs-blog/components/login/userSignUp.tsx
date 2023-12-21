@@ -71,6 +71,7 @@ const UserSignUp = () => {
                 setErrMessage(errorMessages[err.errors[0].code as keyof typeof errorMessages]);
             } else {
                 setErrMessage(err.errors[0].message);
+                console.log(err)
             }
         }
     });

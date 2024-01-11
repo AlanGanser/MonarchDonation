@@ -33,7 +33,7 @@ const Page = async () => {
     // userId,
     // userEmail,
 
-    return <DonationFrom userId={user.id} userEmail={user.emailAddresses[0].emailAddress} defaultAddress={address} today={today} unavailableDateTimes={unavailableDateTimes.map((obj) => obj.startTime as Date)} />;
+    return <DonationFrom userId={user.id} userEmail={user.emailAddresses[0].emailAddress} defaultAddress={address} today={today} unavailableDateTimes={unavailableDateTimes.map((obj) => new Date(obj.startTime!))} />;
 };
 
 export default Page;

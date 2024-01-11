@@ -45,17 +45,17 @@ const Donations = async () => {
                                         <HiCalendar className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                     </dt>
                                     <dd className="flex space-x-3">
-                                        <time dateTime={format(donation.date!, "yyyy-MM-dd")}>
+                                        <time dateTime={format(new Date(donation.date!), "yyyy-MM-dd")}>
                                             {" "}
-                                            {format(donation.date!, "MMMM d, yyyy")}
+                                            {format(new Date(donation.date!), "MMMM d, yyyy")}
                                         </time>
                                         <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                            <time dateTime={format(donation.startTime!, "hh:mm a")}>
-                                                {format(donation.startTime!, "h:mm")}
+                                            <time dateTime={format(new Date(donation.startTime!), "hh:mm a")}>
+                                                {format(new Date(donation.startTime!), "h:mm")}
                                             </time>
                                             &nbsp;-&nbsp;
-                                            <time dateTime={format(donation.endTime!, "hh:mm a")}>
-                                                {format(donation.endTime!, "h:mm a")}
+                                            <time dateTime={format(new Date(donation.endTime!), "hh:mm a")}>
+                                                {format(new Date(donation.endTime!), "h:mm a")}
                                             </time>
                                         </span>
                                     </dd>

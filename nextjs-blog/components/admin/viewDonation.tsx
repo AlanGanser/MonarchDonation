@@ -31,17 +31,17 @@ const ViewDonation = ({ donation, items, user }: { donation: Donation; items: It
                     <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt className="text-sm font-medium leading-6 text-gray-900">Date and time</dt>
                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 flex space-x-3">
-                            <time dateTime={format(donation.date!, "yyyy-MM-dd")}>
+                            <time dateTime={format(new Date(donation.date!), "yyyy-MM-dd")}>
                                 {" "}
-                                {format(donation.date!, "MMMM d, yyyy")}
+                                {format(new Date(donation.date!), "MMMM d, yyyy")}
                             </time>
                             <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                <time dateTime={format(donation.startTime!, "hh:mm a")}>
-                                    {format(donation.startTime!, "h:mm")}
+                                <time dateTime={format(new Date(donation.startTime!), "hh:mm a")}>
+                                    {format(new Date(donation.startTime!), "h:mm")}
                                 </time>
                                 &nbsp;-&nbsp;
-                                <time dateTime={format(donation.endTime!, "hh:mm a")}>
-                                    {format(donation.endTime!, "h:mm a")}
+                                <time dateTime={format(new Date(donation.endTime!), "hh:mm a")}>
+                                    {format(new Date(donation.endTime!), "h:mm a")}
                                 </time>
                             </span>
                         </dd>

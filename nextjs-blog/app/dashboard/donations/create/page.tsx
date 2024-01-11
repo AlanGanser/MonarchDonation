@@ -34,7 +34,7 @@ const Page = async () => {
             userEmail={user.emailAddresses[0].emailAddress}
             defaultAddress={address || ""}
             today={today}
-            unavailableDateTimes={unavailableDateTimes?.map((obj) => obj.startTime!) || undefined}
+            unavailableDateTimes={unavailableDateTimes?.map((obj) => new Date(obj.startTime!)) || undefined}
         />
     );
 };

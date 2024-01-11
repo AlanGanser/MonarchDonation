@@ -18,19 +18,19 @@ const DonationList = ({ donations }: { donations: { donation: Donation; items: I
                             <div className="flex-1 truncate">
                                 <div className="flex items-center space-x-3">
                                     <h3 className="truncate text-sm font-medium text-gray-900">
-                                        <time dateTime={format(donationObj.donation.date!, "yyyy-MM-dd")}>
+                                        <time dateTime={format(new Date(donationObj.donation.date!), "yyyy-MM-dd")}>
                                             {/* TODO */}
                                             {" "}
-                                            {format(donationObj.donation.date!, "MMMM d, yyyy")}
+                                            {format(new Date(donationObj.donation.date!), "MMMM d, yyyy")}
                                         </time>
                                     </h3>
                                     <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                        <time dateTime={format(donationObj.donation.startTime!, "hh:mm a")}>
-                                            {format(donationObj.donation.startTime!, "h:mm")}
+                                        <time dateTime={format(new Date(donationObj.donation.startTime!), "hh:mm a")}>
+                                            {format(new Date(donationObj.donation.startTime!), "h:mm")}
                                         </time>
                                         &nbsp;-&nbsp;
-                                        <time dateTime={format(donationObj.donation.endTime!, "hh:mm a")}>
-                                            {format(donationObj.donation.endTime!, "h:mm a")}
+                                        <time dateTime={format(new Date(donationObj.donation.endTime!), "hh:mm a")}>
+                                            {format(new Date(donationObj.donation.endTime!), "h:mm a")}
                                         </time>
                                     </span>
                                 </div>

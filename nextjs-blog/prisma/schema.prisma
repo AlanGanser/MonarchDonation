@@ -22,9 +22,9 @@ model Item {
 model Donation {
     id        String   @id @unique @default(cuid())
     address   String
-    date      DateTime?
-    startTime DateTime? @map("start_time")
-    endTime   DateTime? @map("end_time")
+    date      String?
+    startTime String? @map("start_time")
+    endTime   String? @map("end_time")
     items     Item[]
     createdAt DateTime @default(now()) @map(name: "created_at")
     updatedAt DateTime @updatedAt @map(name: "updated_at")

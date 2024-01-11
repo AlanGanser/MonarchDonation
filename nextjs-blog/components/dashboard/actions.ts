@@ -52,9 +52,9 @@ export const updateDonation = async (donationId: string, address: string, startT
             },
             data: {
                 address: address,
-                date: startOfDay(startTime),
-                startTime: startTime,
-                endTime: addMinutes(startTime, 30),
+                date: startOfDay(startTime).toISOString(),
+                startTime: startTime.toISOString(),
+                endTime: addMinutes(startTime, 30).toISOString(),
             },
         });
 
@@ -81,9 +81,9 @@ export const createDonation = async (userId: string, address: string, startTime:
             data: {
                 userId: userId,
                 address: address,
-                date: startOfDay(startTime),
-                startTime: startTime,
-                endTime: addMinutes(startTime, 30),
+                date: startOfDay(startTime).toISOString(),
+                startTime: startTime.toISOString(),
+                endTime: addMinutes(startTime, 30).toISOString(),
             },
         });
         await prisma.item.createMany({

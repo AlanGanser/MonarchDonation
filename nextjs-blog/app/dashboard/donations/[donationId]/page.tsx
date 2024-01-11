@@ -39,7 +39,7 @@ const Page = async ({ params }: { params: { donationId: string } }) => {
             donation={donation}
             items={items}
             today={today}
-            unavailableDateTimes={unavailableDateTimes?.map((obj) => obj.startTime!) || undefined}
+            unavailableDateTimes={unavailableDateTimes?.map((obj) => new Date(obj.startTime!)) || undefined}
         />
     );
 };

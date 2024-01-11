@@ -96,7 +96,7 @@ const UpdateDonationFrom = ({
         resolver: zodResolver(form),
         defaultValues: {
             items: items as ItemSchema[],
-            date: donation.startTime?.valueOf() || getNextAvailableTime(today, unavailableDateTimes).valueOf(),
+            date: new Date(donation.startTime!).valueOf() || getNextAvailableTime(today, unavailableDateTimes).valueOf(),
             address: donation.address,
         },
     });

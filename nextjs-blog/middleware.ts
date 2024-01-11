@@ -1,4 +1,4 @@
-import { authMiddleware } from "@clerk/nextjs/server";
+import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
     // publicRoutes will be accessible to all users
@@ -14,7 +14,7 @@ export default authMiddleware({
         "/api/webhooks(.*)",
         "/api/users(.*)"
     ],
-    // debug: true,
+    debug: true,
 });
 
 export const config = {

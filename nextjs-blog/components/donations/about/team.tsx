@@ -2,11 +2,17 @@ import Image from "next/image"; // TODO
 import Link from "next/link"; // TODO
 
 const people = [
+    // {
+    //     name: "Hong Yi Lee",
+    //     role: "Testing and Marketing", // TODO
+    //     imageUrl: "/images/hongyi.jpeg",
+    //     instagramUrl: "https://www.instagram.com/gult/", // TODO
+    // },
     {
-        name: "Hong Yi Lee",
+        name: "Rachel Mata",
         role: "Testing and Marketing", // TODO
-        imageUrl: "/images/hongyi.jpeg",
-        instagramUrl: "https://www.instagram.com/gult/", // TODO
+        imageUrl: "/images/rachel.jpeg",
+        instagramUrl: "https://www.instagram.com/rachael_ym//", // TODO
     },
     {
         name: "Alan Ganser",

@@ -19,6 +19,7 @@ const DonationList = ({ donations }: { donations: { donation: Donation; items: I
                                 <div className="flex items-center space-x-3">
                                     <h3 className="truncate text-sm font-medium text-gray-900">
                                         <time dateTime={format(donationObj.donation.date!, "yyyy-MM-dd")}>
+                                            {/* TODO */}
                                             {" "}
                                             {format(donationObj.donation.date!, "MMMM d, yyyy")}
                                         </time>

@@ -13,7 +13,7 @@ export async function GET(request: NextRequest, { params }: { params: { donation
 
 export async function PUT(request: NextRequest, { params }: { params: { donationId: string } }) {
     const { donationId } = params;
-    const { address, date }: { address: string; date: Date } = await request.json();
+    const { address, date }: { address: string; date: string } = await request.json();
     await prisma.donation.update({
         where: {
             id: donationId,
